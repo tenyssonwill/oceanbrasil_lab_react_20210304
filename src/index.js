@@ -1,4 +1,75 @@
-import React, { useState } from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import './index.css';
+
+function Dia(props){
+    return(
+        <button> 
+            {
+                (props.dia > 0 && props.dia <32) ? props.dia : "-"
+            }
+        </button>
+    )
+}
+
+function Semana(props){
+    return(
+        <div>
+            <Dia dia= { props.primeiroDia }/>
+            <Dia dia=  { props.primeiroDia + 1} />
+            <Dia dia=  { props.primeiroDia + 2} />
+            <Dia dia=  { props.primeiroDia + 3} />
+            <Dia dia=  { props.primeiroDia + 4} />
+            <Dia dia=  { props.primeiroDia + 5} />
+            <Dia dia=  { props.primeiroDia + 6} />
+        </div>
+        
+    )
+}
+
+function Calendario(props){
+    return(
+        <div>
+         {props.mes}/{props.ano} 
+         <div>
+        <button>Dom </button>
+        <button>Seg </button>
+        <button>Ter </button>
+        <button>Qua </button>
+        <button>Qui </button>
+        <button>Sex </button>
+        <button>Sab </button>
+        
+        </div>
+        <Semana primeiroDia={-5} />
+        <Semana primeiroDia={2} />
+        <Semana primeiroDia={9} />
+        <Semana primeiroDia={16} />
+        <Semana primeiroDia={23} />
+        <Semana primeiroDia={30} />
+        </div>
+    )
+
+}
+
+function Agenda(){
+    return(
+        <div>
+            <div>Agenda do Ocean</div>
+            <Calendario mes={"05"} ano={"2021"}/>
+        </div>
+    )
+}
+
+ReactDOM.render(
+
+    <Agenda />,
+    //<p>Olá, Ocean</p>,
+    document.getElementById('root')
+)
+
+/* import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Calendar from 'react-calendar';
@@ -90,4 +161,4 @@ ReactDOM.render(
     <Scheduler/>,
     // Em qual elemento
     document.getElementById('root')
-);
+); */
